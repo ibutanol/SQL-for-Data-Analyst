@@ -103,37 +103,126 @@ SELECT * FROM books
 WHERE title LIKE '%\_%';
 
 
+AUFGABE 1: Titles that contain "stories"
++-----------------------------------------------------+
+| title                                               |
++-----------------------------------------------------+
+| What We Talk About When We Talk About Love: Stories |
+| Where I'm Calling From: Selected Stories            |
+| Oblivion: Stories                                   |
++-----------------------------------------------------+
+AUFGABE 2: Print out the title and page count of the longest book
++-------------------------------------------+-------+
+| title                                     | pages |
++-------------------------------------------+-------+
+| The Amazing Adventures of Kavalier & Clay |   634 |
++-------------------------------------------+-------+
+AUFGABE3:Print a summary containing the title and year, for the 3 most recent books
++-----------------------------+
+| summary                     |
++-----------------------------+
+| Lincoln In The Bardo - 2017 |
+| Norse Mythology - 2016      |
+| 10% Happier - 2014          |
++-----------------------------+
+AUFGABE 4:
+
+
+Find all books with an author_lname that contains a space(" ")
++----------------------+----------------+
+| title                | author_lname   |
++----------------------+----------------+
+| Oblivion: Stories    | Foster Wallace |
+| Consider the Lobster | Foster Wallace |
++----------------------+----------------+
+
+AUFGABE 5: Find The 3 Books With The Lowest Stock Select title, year, and stock
++-----------------------------------------------------+---------------+----------------+
+| title                                               | released_year | stock_quantity |
++-----------------------------------------------------+---------------+----------------+
+| American Gods                                       |          2001 |             12 |
+| Where I'm Calling From: Selected Stories            |          1989 |             12 |
+| What We Talk About When We Talk About Love: Stories |          1981 |             23 |
++-----------------------------------------------------+---------------+----------------+
+
+AUFGABE 6:
+Print title and author_lname, sorted first by author_lname and then by title
++-----------------------------------------------------+----------------+
+| title                                               | author_lname   |
++-----------------------------------------------------+----------------+
+| What We Talk About When We Talk About Love: Stories | Carver         |
+| Where I'm Calling From: Selected Stories            | Carver         |
+| The Amazing Adventures of Kavalier & Clay           | Chabon         |
+| White Noise                                         | DeLillo        |
+| A Heartbreaking Work of Staggering Genius           | Eggers         |
+| A Hologram for the King: A Novel                    | Eggers         |
+| The Circle                                          | Eggers         |
+| Consider the Lobster                                | Foster Wallace |
+| Oblivion: Stories                                   | Foster Wallace |
+| American Gods                                       | Gaiman         |
+| Coraline                                            | Gaiman         |
+| Norse Mythology                                     | Gaiman         |
+| 10% Happier                                         | Harris         |
+| fake_book                                           | Harris         |
+| Interpreter of Maladies                             | Lahiri         |
+| The Namesake                                        | Lahiri         |
+| Lincoln In The Bardo                                | Saunders       |
+| Just Kids                                           | Smith          |
+| Cannery Row                                         | Steinbeck      |
++-----------------------------------------------------+----------------+
+
+
+
+AUFGABE 7: Make This Happen... Sorted Alphabetically By Last Name
++---------------------------------------------+
+| yell                                        |
++---------------------------------------------+
+| MY FAVORITE AUTHOR IS RAYMOND CARVER!       |
+| MY FAVORITE AUTHOR IS RAYMOND CARVER!       |
+| MY FAVORITE AUTHOR IS MICHAEL CHABON!       |
+| MY FAVORITE AUTHOR IS DON DELILLO!          |
+| MY FAVORITE AUTHOR IS DAVE EGGERS!          |
+| MY FAVORITE AUTHOR IS DAVE EGGERS!          |
+| MY FAVORITE AUTHOR IS DAVE EGGERS!          |
+| MY FAVORITE AUTHOR IS DAVID FOSTER WALLACE! |
+| MY FAVORITE AUTHOR IS DAVID FOSTER WALLACE! |
+| MY FAVORITE AUTHOR IS NEIL GAIMAN!          |
+| MY FAVORITE AUTHOR IS NEIL GAIMAN!          |
+| MY FAVORITE AUTHOR IS NEIL GAIMAN!          |
+| MY FAVORITE AUTHOR IS FREIDA HARRIS!        |
+| MY FAVORITE AUTHOR IS DAN HARRIS!           |
+| MY FAVORITE AUTHOR IS JHUMPA LAHIRI!        |
+| MY FAVORITE AUTHOR IS JHUMPA LAHIRI!        |
+| MY FAVORITE AUTHOR IS GEORGE SAUNDERS!      |
+| MY FAVORITE AUTHOR IS PATTI SMITH!          |
+| MY FAVORITE AUTHOR IS JOHN STEINBECK!       |
++---------------------------------------------+
+
 --LÖSUNGEN ZUM TEST REFINING SELECTION
 
-
-
-
-
-SELECT title FROM books WHERE title LIKE '%stories%';
+AUFGABE 1: SELECT title FROM books WHERE title LIKE '%stories%';
  
-SELECT title, pages FROM books ORDER BY pages DESC LIMIT 1;
+AUFGABE 2: SELECT title, pages FROM books ORDER BY pages DESC LIMIT 1;
  
-SELECT 
-    CONCAT(title, ' - ', released_year) AS summary 
-FROM books ORDER BY released_year DESC LIMIT 3;
+AUFGABE 3: SELECT 
+           CONCAT(title, ' - ', released_year) AS summary 
+           FROM books ORDER BY released_year DESC LIMIT 3;
  
-SELECT title, author_lname FROM books WHERE author_lname LIKE '% %';
+AUFGABE 4: SELECT title, author_lname FROM books WHERE author_lname LIKE '% %';
  
-SELECT title, released_year, stock_quantity 
-FROM books ORDER BY stock_quantity LIMIT 3;
+AUFGABE 5: SELECT title, released_year, stock_quantity 
+           FROM books ORDER BY stock_quantity LIMIT 3;
  
-SELECT title, author_lname 
-FROM books ORDER BY author_lname, title;
+AUFGABE 6: SELECT title, author_lname 
+           FROM books ORDER BY author_lname, title;
  
-SELECT title, author_lname 
-FROM books ORDER BY 2,1;
  
-SELECT
-    CONCAT(
-        'MY FAVORITE AUTHOR IS ',
-        UPPER(author_fname),
-        ' ',
-        UPPER(author_lname),
-        '!'
-    ) AS yell
-FROM books ORDER BY author_lname;
+AUFGABE 7: SELECT
+           CONCAT(
+               'MY FAVORITE AUTHOR IS ',
+               UPPER(author_fname),
+               ' ',
+               UPPER(author_lname),
+               '!'
+           ) AS yell
+           FROM books ORDER BY author_lname;
